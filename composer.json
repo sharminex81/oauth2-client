@@ -1,0 +1,40 @@
+{
+  "name": "previewtechs/oauth2-client",
+  "description": "Official OAuth2 Client for Preview Technologies",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Shaharia Azam",
+      "email": "shaharia@previewtechs.com",
+      "homepage": "https://github.com/PreviewTechnologies"
+    }
+  ],
+  "keywords": [
+    "oauth",
+    "oauth2",
+    "client",
+    "authorization",
+    "authorisation",
+    "PreviewTechnologies",
+    "previewtechs"
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "league/oauth2-client": "2.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "mockery/mockery": "~0.9",
+    "squizlabs/php_codesniffer": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Previewtechs\\Oauth2\\Client\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Previewtechs\\Oauth2\\Client\\Test\\": "tests/src/"
+    }
+  }
+}
