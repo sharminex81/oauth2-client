@@ -46,7 +46,7 @@ class ResourceOwner implements ResourceOwnerInterface
      */
     public function getEmail()
     {
-        return sprintf("%s %s", $this->response['first_name'], $this->response['last_name']) ?: null;
+        return $this->response['email'] ?: null;
     }
 
     /**

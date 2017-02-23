@@ -47,9 +47,9 @@ class Provider extends AbstractProvider
     public $resourceOwnerEndpoint;
 
     /**
-     * @var null
+     * @var array
      */
-    public $defaultScopes = null;
+    public $defaultScopes = [];
 
     /**
      * @var string
@@ -83,7 +83,7 @@ class Provider extends AbstractProvider
     }
 
     /**
-     * @return null
+     * @return array
      */
     protected function getDefaultScopes()
     {
