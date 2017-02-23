@@ -1,6 +1,6 @@
 <?php
 /**
- * Write something about the purpose of this file
+ * Official OAuth2 Client Provider for Preview Technologies
  *
  * @author Shaharia Azam <shaharia@previewtechs.com>
  * @url https://www.previewtechs.com
@@ -12,20 +12,48 @@ namespace Previewtechs\Oauth2\Client;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
+use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class Provider
+ * @package Previewtechs\Oauth2\Client
+ */
 class Provider extends AbstractProvider
 {
 
+    use BearerAuthorizationTrait;
+
+    /**
+     * @var bool
+     */
     public $testMode = false;
+    /**
+     * @var array
+     */
     public $scopes = ['basic', 'email'];
 
+    /**
+     * @var
+     */
     public $authorizeEndpoint;
+    /**
+     * @var
+     */
     public $accessTokenEndpoint;
+    /**
+     * @var
+     */
     public $resourceOwnerEndpoint;
 
+    /**
+     * @var null
+     */
     public $defaultScopes = null;
 
+    /**
+     * @var string
+     */
     public $oauthHost = "https://oauth.previewtechs.com";
 
     /**
@@ -33,7 +61,7 @@ class Provider extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return $this->authorizeEndpoint = $this->oauthHost."/ac/v1/authorize";
+        return $this->authorizeEndpoint = $this->oauthHost . "/ac/v1/authorize";
     }
 
     /**
@@ -42,7 +70,7 @@ class Provider extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return $this->accessTokenEndpoint = $this->oauthHost."/ac/v1/access_token";
+        return $this->accessTokenEndpoint = $this->oauthHost . "/ac/v1/access_token";
     }
 
     /**
@@ -51,7 +79,7 @@ class Provider extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return $this->resourceOwnerEndpoint = $this->oauthHost."/api/v1/userinfo";
+        return $this->resourceOwnerEndpoint = $this->oauthHost . "/api/v1/userinfo";
     }
 
     /**
