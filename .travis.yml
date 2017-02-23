@@ -24,9 +24,6 @@ matrix:
 before_script:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
-script:
-  - composer test
-
 after_script:
   - bash -c '[[ -f "build/logs/clover.xml" ]] && wget https://scrutinizer-ci.com/ocular.phar'
   - bash -c '[[ -f "build/logs/clover.xml" ]] && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml'
