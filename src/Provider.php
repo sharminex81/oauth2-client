@@ -26,12 +26,14 @@ class Provider extends AbstractProvider
 
     public $defaultScopes = null;
 
+    public $oauthHost = "https://oauth.previewtechs.com";
+
     /**
      * @return string
      */
     public function getBaseAuthorizationUrl()
     {
-        return $this->authorizeEndpoint = "https://oauth.previewtechs.com/ac/authorize";
+        return $this->authorizeEndpoint = $this->oauthHost."/ac/v1/authorize";
     }
 
     /**
@@ -40,7 +42,7 @@ class Provider extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return $this->accessTokenEndpoint = "https://oauth.previewtechs.com/ac/access_token";
+        return $this->accessTokenEndpoint = $this->oauthHost."/ac/v1/access_token";
     }
 
     /**
@@ -49,7 +51,7 @@ class Provider extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return $this->resourceOwnerEndpoint = "https://oauth.previewtechs.com/api/users";
+        return $this->resourceOwnerEndpoint = $this->oauthHost."/api/v1/userinfo";
     }
 
     /**
