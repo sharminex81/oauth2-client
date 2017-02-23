@@ -8,7 +8,6 @@
 
 namespace Previewtechs\Oauth2\Client;
 
-
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
