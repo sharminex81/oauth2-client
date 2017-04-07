@@ -48,19 +48,19 @@ class Provider extends AbstractProvider
     /**
      * @var array
      */
-    public $defaultScopes = [];
+    public $defaultScopes = ['basic', 'email'];
 
     /**
      * @var string
      */
-    public $oauthHost = "https://oauth.previewtechs.com";
+    public $oauthHost = "https://myaccount.previewtechs.com";
 
     /**
      * @return string
      */
     public function getBaseAuthorizationUrl()
     {
-        return $this->authorizeEndpoint = $this->oauthHost . "/ac/v1/authorize";
+        return $this->authorizeEndpoint = $this->oauthHost . "/oauth/authorize";
     }
 
     /**
@@ -69,7 +69,7 @@ class Provider extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return $this->accessTokenEndpoint = $this->oauthHost . "/ac/v1/access_token";
+        return $this->accessTokenEndpoint = $this->oauthHost . "/oauth/access_token";
     }
 
     /**
@@ -87,6 +87,14 @@ class Provider extends AbstractProvider
     protected function getDefaultScopes()
     {
         return $this->defaultScopes;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getScopeSeparator()
+    {
+        return " ";
     }
 
     /**
