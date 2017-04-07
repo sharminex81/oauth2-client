@@ -70,7 +70,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getAuthorizationUrl();
         $path = \parse_url($url, PHP_URL_PATH);
         // Verify
-        $this->assertSame('/ac/v1/authorize', $path);
+        $this->assertSame('/oauth/authorize', $path);
     }
 
     /**
@@ -83,7 +83,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getBaseAccessTokenUrl($params);
         $path = \parse_url($url, PHP_URL_PATH);
         // Verify
-        $this->assertSame('/ac/v1/access_token', $path);
+        $this->assertSame('/oauth/access_token', $path);
     }
 
     /**
@@ -97,7 +97,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         // Run
         $scope = $getDefaultScopesMethod->invoke($this->provider);
         // Verify
-        $this->assertEquals([], $scope);
+        $this->assertEquals(['basic', 'email'], $scope);
     }
 
     /**
@@ -122,34 +122,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $this->assertEquals($body['access_token'], $token->getToken());
         $this->assertEquals($body['refresh_token'], $token->getRefreshToken());
         $this->assertGreaterThanOrEqual($body['expires_in'], $token->getExpires());
-    }
-
-    /**
-     *
-     */
-    public function testUserProperty()
-    {
-        $body = [
-            'id' => 12345678,
-            'last_name' => 'lst_name',
-            'first_name' => 'first_name',
-            'middle_name' => 'middle_name',
-            'email' => 'email',
-        ];
-        $tokenOptions = [
-            'access_token' => 'mock_access_token',
-            'expires_in' => 3600,
-        ];
-        $token = new AccessToken($tokenOptions);
-        $response = $this->mockResponse($body);
-        $client = $this->mockClient($response->get());
-        // Run
-        $this->provider->setHttpClient($client->get());
-        $user = $this->provider->getResourceOwner($token);
-        // Verify
-        $this->assertEquals($body['id'], $user->getId());
-        $this->assertEquals($body['email'], $user->getEmail());
-        $this->assertArrayHasKey('email', $user->toArray());
     }
 
     /**
