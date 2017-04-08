@@ -66,8 +66,10 @@ require "vendor/autoload.php";
 session_start();
 
 $provider = new \Previewtechs\Oauth2\Client\Provider([
-    'clientId' => '{previewtechs_client_id}',    // The client ID assigned to you by Preview Technologies
-    'clientSecret' => '{previewtechs_client_secret}',   // The client password assigned to you by Preview Technologies
+    'clientId' => '{previewtechs_client_id}',
+    // The client ID assigned to you by Preview Technologies
+    'clientSecret' => '{previewtechs_client_secret}',
+    // The client password assigned to you by Preview Technologies
     'redirectUri' => '{your_redirect_url}'
 ]);
 
@@ -113,6 +115,20 @@ if (!isset($_GET['code'])) {
         $resourceOwner = $provider->getResourceOwner($accessToken);
 
         var_export($resourceOwner->toArray());
+
+        // We provides a way to get an authenticated API request for
+        // the service, using the access token; it returns an object conforming
+        // to Psr\Http\Message\RequestInterface.
+        $request = $provider->getAuthenticatedRequest(
+            'GET',
+            'https://user-info.previewtechsapis.com/v1/me',
+            $accessToken
+        );
+
+        $client = new \GuzzleHttp\Client();
+        $result = $client->send($request);
+
+        var_export(json_decode($result->getBody()->getContents(), true));
 
     } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
 
