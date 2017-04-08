@@ -78,7 +78,7 @@ class Provider extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return $this->resourceOwnerEndpoint = $this->oauthHost . "/api/v1/userinfo";
+        return $this->resourceOwnerEndpoint = "https://user-info.previewtechsapis.com/v1/me";
     }
 
     /**
