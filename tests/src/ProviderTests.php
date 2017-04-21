@@ -25,8 +25,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $this->provider = new Provider([
             'clientId' => 'mock_client_id',
             'clientSecret' => 'mock_secret',
-            'redirectUri' => 'mock_redirect_uri',
-            'scopes' => ['basic', 'email']
+            'redirectUri' => 'mock_redirect_uri'
         ]);
     }
 
@@ -96,6 +95,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $getDefaultScopesMethod->setAccessible(true);
         // Run
         $scope = $getDefaultScopesMethod->invoke($this->provider);
+
         // Verify
         $this->assertEquals(['basic', 'email'], $scope);
     }
