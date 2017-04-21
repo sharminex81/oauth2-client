@@ -9,6 +9,7 @@
 namespace Previewtechs\Oauth2\Client;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+
 /**
  * Class ResourceOwner
  * @package Previewtechs\Oauth2\Client

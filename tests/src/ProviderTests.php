@@ -3,7 +3,6 @@ namespace Previewtechs\Oauth2\Client\Test;
 
 use Eloquent\Phony\Pho\Phony;
 use GuzzleHttp\ClientInterface;
-use League\OAuth2\Client\Token\AccessToken;
 use Previewtechs\Oauth2\Client\Provider;
 use Psr\Http\Message\ResponseInterface;
 
@@ -27,6 +26,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
             'clientId' => 'mock_client_id',
             'clientSecret' => 'mock_secret',
             'redirectUri' => 'mock_redirect_uri',
+            'scopes' => ['basic', 'email']
         ]);
     }
 
