@@ -70,7 +70,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getAuthorizationUrl();
         $path = \parse_url($url, PHP_URL_PATH);
         // Verify
-        $this->assertSame('/oauth/authorize', $path);
+        $this->assertSame('/oauth/v1/authorize', $path);
     }
 
     /**
@@ -83,7 +83,7 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getBaseAccessTokenUrl($params);
         $path = \parse_url($url, PHP_URL_PATH);
         // Verify
-        $this->assertSame('/oauth/access_token', $path);
+        $this->assertSame('/oauth/v1/access_token', $path);
     }
 
     /**
