@@ -16,14 +16,18 @@ use League\OAuth2\Client\Provider\ResourceOwnerInterface;
  */
 class ResourceOwner implements ResourceOwnerInterface
 {
+
     /**
      * @var array
      */
     protected $response;
+
     /**
      * @var array|mixed
      */
     protected $data = [];
+
+
     /**
      * ResourceOwner constructor.
      * @param array $response
@@ -31,10 +35,13 @@ class ResourceOwner implements ResourceOwnerInterface
     public function __construct(array $response = array())
     {
         $this->response = $response;
+
         if (array_key_exists('data', $this->response)) {
             $this->data = $this->response['data'];
         }
     }
+
+
     /**
      * @return null
      */
@@ -42,6 +49,7 @@ class ResourceOwner implements ResourceOwnerInterface
     {
         return $this->data['id'] ?: null;
     }
+
     /**
      * @return null
      */
@@ -49,6 +57,7 @@ class ResourceOwner implements ResourceOwnerInterface
     {
         return $this->data['email_address'] ?: null;
     }
+
     /**
      * @return null
      */
@@ -56,6 +65,7 @@ class ResourceOwner implements ResourceOwnerInterface
     {
         return $this->data['profile']['first_name'] ?: null;
     }
+
     /**
      * @return null
      */
@@ -63,6 +73,7 @@ class ResourceOwner implements ResourceOwnerInterface
     {
         return $this->data['profile']['last_name'] ?: null;
     }
+
     /**
      * @return null
      */
@@ -70,6 +81,7 @@ class ResourceOwner implements ResourceOwnerInterface
     {
         return $this->data['profile']['full_name'] ?: null;
     }
+
     /**
      * @return null
      */
@@ -77,6 +89,7 @@ class ResourceOwner implements ResourceOwnerInterface
     {
         return $this->data['profile']['picture'] ?: null;
     }
+
     /**
      * @return null
      */
@@ -84,6 +97,7 @@ class ResourceOwner implements ResourceOwnerInterface
     {
         return $this->data['profile']['gender'] ?: null;
     }
+
     /**
      * @return array
      */
