@@ -26,17 +26,17 @@ class Provider extends AbstractProvider
     /**
      * @var string
      */
-    private $urlAuthorize = "https://myaccount.previewtechs.com/oauth/authorize";
+    private $urlAuthorize = "https://myaccount.previewtechs.com/oauth/v1/authorize";
 
     /**
      * @var string
      */
-    private $urlAccessToken = "https://myaccount.previewtechs.com/oauth/access_token";
+    private $urlAccessToken = "https://myaccount.previewtechs.com/oauth/v1/access_token";
 
     /**
      * @var string
      */
-    private $urlResourceOwnerDetails = "https://user-info.previewtechsapis.com/v1/me";
+    private $urlResourceOwnerDetails = "https://www.previewtechsapis.com/identity/v1/user-info";
 
     /**
      * @var string
