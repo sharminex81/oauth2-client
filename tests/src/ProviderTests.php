@@ -1,11 +1,9 @@
 <?php
 namespace Previewtechs\Oauth2\Client\Test;
-
 use Eloquent\Phony\Pho\Phony;
 use GuzzleHttp\ClientInterface;
 use Previewtechs\Oauth2\Client\Provider;
 use Psr\Http\Message\ResponseInterface;
-
 /**
  * Class ProviderTests
  * @package Previewtechs\Oauth2\Client\Test
@@ -16,7 +14,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
      * @var Provider
      */
     private $provider;
-
     /**
      *
      */
@@ -28,7 +25,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
             'redirectUri' => 'mock_redirect_uri'
         ]);
     }
-
     /**
      *
      */
@@ -36,7 +32,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
     {
         parent::tearDown();
     }
-
     /**
      * @param $body
      * @return \Eloquent\Phony\Mock\Handle\InstanceHandle
@@ -48,7 +43,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $response->getBody->returns(json_encode($body));
         return $response;
     }
-
     /**
      * @param ResponseInterface $response
      * @return \Eloquent\Phony\Mock\Handle\InstanceHandle
@@ -59,7 +53,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $client->send->returns($response);
         return $client;
     }
-
     /**
      *
      */
@@ -71,7 +64,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         // Verify
         $this->assertSame('/oauth/v1/authorize', $path);
     }
-
     /**
      *
      */
@@ -84,7 +76,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         // Verify
         $this->assertSame('/oauth/v1/access_token', $path);
     }
-
     /**
      *
      */
@@ -95,11 +86,9 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $getDefaultScopesMethod->setAccessible(true);
         // Run
         $scope = $getDefaultScopesMethod->invoke($this->provider);
-
         // Verify
         $this->assertEquals(['basic', 'email'], $scope);
     }
-
     /**
      *
      */
@@ -123,7 +112,6 @@ class ProviderTests extends \PHPUnit_Framework_TestCase
         $this->assertEquals($body['refresh_token'], $token->getRefreshToken());
         $this->assertGreaterThanOrEqual($body['expires_in'], $token->getExpires());
     }
-
     /**
      * @expectedException League\OAuth2\Client\Provider\Exception\IdentityProviderException
      */
