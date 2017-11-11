@@ -36,7 +36,7 @@ class Provider extends AbstractProvider
     /**
      * @var string
      */
-    private $urlResourceOwnerDetails = "https://www.previewtechsapis.com/identity/v1/user-info";
+    private $urlResourceOwnerDetails = "https://myaccount.previewtechs.com/api/v1/identity/user-info";
 
     /**
      * @var string
@@ -227,6 +227,6 @@ class Provider extends AbstractProvider
      */
     protected function createResourceOwner(array $response, AccessToken $token)
     {
-        return new ResourceOwner($response, $this->responseResourceOwnerId);
+        return new ResourceOwner($response);
     }
 }
