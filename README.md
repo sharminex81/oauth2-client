@@ -121,7 +121,7 @@ if (!isset($_GET['code'])) {
         // to Psr\Http\Message\RequestInterface.
         $request = $provider->getAuthenticatedRequest(
             'GET',
-            'https://www.previewtechsapis.com/identity/v1/user-info',
+            'https://myaccount.previewtechs.com/api/v1/identity/user-info',
             $accessToken
         );
 

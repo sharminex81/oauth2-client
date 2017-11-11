@@ -36,7 +36,7 @@ class Provider extends AbstractProvider
     /**
      * @var string
      */
-    private $urlResourceOwnerDetails = "https://www.previewtechsapis.com/identity/v1/user-info";
+    private $urlResourceOwnerDetails = "https://myaccount.previewtechs.com/api/v1/identity/user-info";
 
     /**
      * @var string
