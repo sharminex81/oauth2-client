@@ -142,7 +142,7 @@ if (!isset($_GET['code'])) {
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/previewtechnologies/oauth2-client) for details.
+Please see [CONTRIBUTING page](https://github.com/previewtechnologies/oauth2-client) for details.
 
 
 ## Credits
