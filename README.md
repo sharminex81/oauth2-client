@@ -10,7 +10,6 @@ This package provides Preview Technologies Limited OAuth 2.0 support for the PHP
 [![Code Quality](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/?branch=master)
 
 ## Installation
-
 To install, use composer:
 
 ```
