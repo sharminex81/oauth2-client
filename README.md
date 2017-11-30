@@ -7,10 +7,10 @@ This package provides Preview Technologies Limited OAuth 2.0 support for the PHP
 [![License](https://img.shields.io/packagist/l/previewtechs/oauth2-client.svg)](https://github.com/previewtechs/oauth2-client/blob/master/LICENSE)
 [![Build Status](https://api.travis-ci.org/PreviewTechnologies/oauth2-client.svg?branch=master)](https://travis-ci.org/PreviewTechnologies/oauth2-client)
 [![Code Coverage](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/?branch=master)
-[![Code Quality](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/?branch=master)
+[![Code Quality]]
 
 ## Installation
-
+[![Code Quality](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PreviewTechnologies/oauth2-client/?branch=master)
 To install, use composer:
 
 ```
